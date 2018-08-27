@@ -32,11 +32,11 @@
                 </option>
                 <option>
                     <name>Input description</name>
-                    <state></state>
+                    <state>Full formatting, with multibyte support.</state>
                 </option>
                 <option>
                     <name>Output description</name>
-                    <state></state>
+                    <state>Full formatting, with multibyte support.</state>
                 </option>
                 <option>
                     <name>GOutputBinary</name>
@@ -355,6 +355,13 @@
                     <state>$PROJ_DIR$/../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy</state>
                     <state>$PROJ_DIR$/../Drivers/CMSIS/Device/ST/STM32F1xx/Include</state>
                     <state>$PROJ_DIR$/../Drivers/CMSIS/Include</state>
+                    <state>$PROJ_DIR$\..\BSP\sx1272mb2das</state>
+                    <state>$PROJ_DIR$\..\BSP\sx1276mb1las</state>
+                    <state>$PROJ_DIR$\..\BSP\sx1276mb1mas</state>
+                    <state>$PROJ_DIR$\..\Middleware\Lora\Conf\Inc</state>
+                    <state>$PROJ_DIR$\..\Middleware\Lora\Core</state>
+                    <state>$PROJ_DIR$\..\Middleware\Lora\Phy</state>
+                    <state>$PROJ_DIR$\..\Middleware\Lora\Utilities</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -1002,7 +1009,7 @@
                 </option>
                 <option>
                     <name>IlinkTrustzoneImportLibraryOut</name>
-                    <state>###Unitialized###</state>
+                    <state>Lora_import_lib.o</state>
                 </option>
             </data>
         </settings>
@@ -1055,6 +1062,18 @@
         </group>
     </group>
     <group>
+        <name>BSP</name>
+        <file>
+            <name>$PROJ_DIR$\..\BSP\sx1272mb2das\sx1272mb2das.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\BSP\sx1276mb1las\sx1276mb1las.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\BSP\sx1276mb1mas\sx1276mb1mas.c</name>
+        </file>
+    </group>
+    <group>
         <name>Drivers</name>
         <group>
             <name>CMSIS</name>
@@ -1100,6 +1119,48 @@
             <file>
                 <name>$PROJ_DIR$\..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c</name>
             </file>
+        </group>
+    </group>
+    <group>
+        <name>Middleware</name>
+        <group>
+            <name>Lora</name>
+            <group>
+                <name>Conf</name>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\hw_gpio_template.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\hw_rtc_template.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\hw_spi_template.c</name>
+                </file>
+            </group>
+            <group>
+                <name>Core</name>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Core\lora-test.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Core\lora.c</name>
+                </file>
+            </group>
+            <group>
+                <name>Utilities</name>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Utilities\delay.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Utilities\low_power_manager.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Utilities\timeServer.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Utilities\utilities.c</name>
+                </file>
+            </group>
         </group>
     </group>
 </project>
