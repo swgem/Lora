@@ -226,6 +226,7 @@
                     <name>CCDefines</name>
                     <state>USE_HAL_DRIVER</state>
                     <state>STM32F103xB</state>
+                    <state>USE_STM32F1XX</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -1064,9 +1065,6 @@
     <group>
         <name>BSP</name>
         <file>
-            <name>$PROJ_DIR$\..\BSP\sx1272mb2das\sx1272mb2das.c</name>
-        </file>
-        <file>
             <name>$PROJ_DIR$\..\BSP\sx1276mb1las\sx1276mb1las.c</name>
         </file>
         <file>
@@ -1141,6 +1139,9 @@
                 <name>Core</name>
                 <file>
                     <name>$PROJ_DIR$\..\Middleware\Lora\Core\lora-test.c</name>
+                    <excluded>
+                        <configuration>Lora</configuration>
+                    </excluded>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\..\Middleware\Lora\Core\lora.c</name>

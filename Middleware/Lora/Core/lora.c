@@ -47,9 +47,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "hw.h"
 #include "timeServer.h"
-#include "LoRaMac.h"
 #include "lora.h"
-#include "lora-test.h"
 
 /*!
  * Join requests trials duty cycle.

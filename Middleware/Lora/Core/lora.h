@@ -67,9 +67,6 @@ Maintainer: Miguel Luis, Gregory Cristian and Wael Guibene
 #endif
    
 /* Includes ------------------------------------------------------------------*/
-#include "Commissioning.h"
-#include "LoRaMac.h"
-#include "region/Region.h"
 
 /* Exported constants --------------------------------------------------------*/
    /*!
