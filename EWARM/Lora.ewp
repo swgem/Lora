@@ -363,6 +363,7 @@
                     <state>$PROJ_DIR$\..\Middleware\Lora\Core</state>
                     <state>$PROJ_DIR$\..\Middleware\Lora\Phy</state>
                     <state>$PROJ_DIR$\..\Middleware\Lora\Utilities</state>
+                    <state>$PROJ_DIR$\..\BSP\sx1276</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -1145,6 +1146,9 @@
                 </file>
                 <file>
                     <name>$PROJ_DIR$\..\Middleware\Lora\Core\lora.c</name>
+                    <excluded>
+                        <configuration>Lora</configuration>
+                    </excluded>
                 </file>
             </group>
             <group>
