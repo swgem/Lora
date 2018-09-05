@@ -127,6 +127,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 #ifdef USE_STM32F1XX
   #include "stm32f1xx_hal.h"
   #include "stm32f1xx_hal_conf.h"
+  #include "stm32f1xx_hw_conf.h"
   // #error "create stm32f1xx_hw_conf.h "
 #endif
 /* --------Preprocessor compile swicth------------ */

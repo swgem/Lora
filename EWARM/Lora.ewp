@@ -1067,6 +1067,9 @@
         <name>BSP</name>
         <file>
             <name>$PROJ_DIR$\..\BSP\sx1276mb1las\sx1276mb1las.c</name>
+            <excluded>
+                <configuration>Lora</configuration>
+            </excluded>
         </file>
         <file>
             <name>$PROJ_DIR$\..\BSP\sx1276mb1mas\sx1276mb1mas.c</name>
