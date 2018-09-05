@@ -144,7 +144,7 @@ void SX1276IoInit( void )
   
   initStruct.Mode = GPIO_MODE_IT_RISING;
   initStruct.Pull = GPIO_PULLDOWN;
-  initStruct.Speed = GPIO_SPEED_HIGH;
+  initStruct.Speed = GPIO_SPEED_FREQ_HIGH;
 
   HW_GPIO_Init( RADIO_DIO_0_PORT, RADIO_DIO_0_PIN, &initStruct );
   HW_GPIO_Init( RADIO_DIO_1_PORT, RADIO_DIO_1_PIN, &initStruct );
@@ -270,7 +270,7 @@ static void SX1276AntSwInit( void )
 
   initStruct.Mode =GPIO_MODE_OUTPUT_PP;
   initStruct.Pull = GPIO_NOPULL;
-  initStruct.Speed = GPIO_SPEED_HIGH;
+  initStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   
   HW_GPIO_Init( RADIO_ANT_SWITCH_PORT, RADIO_ANT_SWITCH_PIN, &initStruct  ); 
   HW_GPIO_Write( RADIO_ANT_SWITCH_PORT, RADIO_ANT_SWITCH_PIN, RADIO_ANT_SWITCH_SET_RX);
@@ -283,7 +283,7 @@ static void SX1276AntSwDeInit( void )
   initStruct.Mode = GPIO_MODE_OUTPUT_PP ;
   
   initStruct.Pull = GPIO_NOPULL;
-  initStruct.Speed = GPIO_SPEED_HIGH;
+  initStruct.Speed = GPIO_SPEED_FREQ_HIGH;
 
   HW_GPIO_Init(  RADIO_ANT_SWITCH_PORT, RADIO_ANT_SWITCH_PIN, &initStruct ); 
   HW_GPIO_Write( RADIO_ANT_SWITCH_PORT, RADIO_ANT_SWITCH_PIN, 0);

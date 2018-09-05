@@ -1226,7 +1226,7 @@ void SX1276Reset( void )
 
     initStruct.Mode =GPIO_MODE_OUTPUT_PP;
     initStruct.Pull = GPIO_NOPULL;
-    initStruct.Speed = GPIO_SPEED_HIGH;
+    initStruct.Speed = GPIO_SPEED_FREQ_HIGH;
 
     // Set RESET pin to 0
     HW_GPIO_Init( RADIO_RESET_PORT, RADIO_RESET_PIN, &initStruct );
