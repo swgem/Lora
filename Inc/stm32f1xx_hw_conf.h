@@ -132,11 +132,6 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define ADCCLK_ENABLE()                 __HAL_RCC_ADC1_CLK_ENABLE() ;
 #define ADCCLK_DISABLE()                 __HAL_RCC_ADC1_CLK_DISABLE() ;
 
-
-/* --------------------------- RTC HW definition -------------------------------- */
-
-#define RTC_OUTPUT       DBG_RTC_OUTPUT
-
 /* --------------------------- USART HW definition -------------------------------*/
 
 

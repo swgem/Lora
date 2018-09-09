@@ -82,7 +82,7 @@ static ADC_HandleTypeDef hadc;
 /*!
  * Flag to indicate if the ADC is Initialized
  */
-static bool AdcInitialized = false;
+//static bool AdcInitialized = false;
 
 /*!
  * Flag to indicate if the MCU is Initialized
@@ -103,7 +103,7 @@ void HW_Init( void )
     NVIC_SetVectorTable( NVIC_VectTab_FLASH, 0x3000 );
 #endif
 
-    HW_AdcInit( );
+    // HW_AdcInit( );
 
     Radio.IoInit( );
     
@@ -111,7 +111,7 @@ void HW_Init( void )
 
     HW_RTC_Init( );
     
-    vcom_Init( );
+    // vcom_Init( );
 
     McuInitialized = true;
   }
