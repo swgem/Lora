@@ -227,6 +227,8 @@
                     <state>USE_HAL_DRIVER</state>
                     <state>STM32F103xB</state>
                     <state>USE_STM32F1XX</state>
+                    <state>USE_BAND_868</state>
+                    <state>USE_MODEM_LORA</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -1059,12 +1061,18 @@
                 <name>$PROJ_DIR$\..\Src\stm32f1xx_hal_msp.c</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\Src\stm32f1xx_hw.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\Src\stm32f1xx_it.c</name>
             </file>
         </group>
     </group>
     <group>
         <name>BSP</name>
+        <file>
+            <name>$PROJ_DIR$\..\BSP\sx1276\sx1276.c</name>
+        </file>
         <file>
             <name>$PROJ_DIR$\..\BSP\sx1276mb1las\sx1276mb1las.c</name>
             <excluded>
