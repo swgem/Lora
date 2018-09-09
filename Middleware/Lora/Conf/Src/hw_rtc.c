@@ -206,8 +206,8 @@ static void HW_RTC_SetConfig( void )
   RTC_DateTypeDef RTC_DateStruct;
 
   RtcHandle.Instance = RTC;
-
   RtcHandle.Init.AsynchPrediv = PREDIV_A; /* RTC_ASYNCH_PREDIV; */
+  RtcHandle.Init.OutPut = RTC_OUTPUTSOURCE_ALARM;
 
   HAL_RTC_Init( &RtcHandle );
   
