@@ -92,7 +92,6 @@ do {                                                    \
       case GPIOB_BASE: __HAL_RCC_GPIOB_CLK_ENABLE(); break;    \
       case GPIOC_BASE: __HAL_RCC_GPIOC_CLK_ENABLE(); break;    \
       case GPIOD_BASE: __HAL_RCC_GPIOD_CLK_ENABLE(); break;    \
-      case GPIOH_BASE: default:  __HAL_RCC_GPIOH_CLK_ENABLE(); \
     }                                                    \
   } while(0)  
 
