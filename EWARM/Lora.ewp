@@ -1124,6 +1124,12 @@
                 <name>$PROJ_DIR$\..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rcc_ex.c</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rtc.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_spi.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c</name>
             </file>
             <file>
@@ -1138,13 +1144,25 @@
             <group>
                 <name>Conf</name>
                 <file>
-                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\hw_gpio_template.c</name>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\debug.c</name>
+                    <excluded>
+                        <configuration>Lora</configuration>
+                    </excluded>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\hw_rtc_template.c</name>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\hw_gpio.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\hw_spi_template.c</name>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\hw_rtc.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\hw_spi.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\..\Middleware\Lora\Conf\Src\vcom.c</name>
+                    <excluded>
+                        <configuration>Lora</configuration>
+                    </excluded>
                 </file>
             </group>
             <group>

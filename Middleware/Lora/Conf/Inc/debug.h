@@ -69,7 +69,7 @@
 
 void DBG_Init( void );
 
-void Error_Handler( void );
+#define Error_Handler( void )         _Error_Handler(0,0)
 
 #ifdef DEBUG
 
