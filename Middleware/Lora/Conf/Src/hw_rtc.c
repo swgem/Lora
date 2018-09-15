@@ -84,9 +84,6 @@ typedef struct
 /* Synchonuous prediv  */
 #define PREDIV_S                  ((1<<N_PREDIV_S)-1)
 
-/* Asynchonuous prediv   */
-#define PREDIV_A                  (1<<(15-N_PREDIV_S))-1
-
 /* Sub-second mask definition  */
 #if  (N_PREDIV_S == 10)
 #define HW_RTC_ALARMSUBSECONDMASK RTC_ALARMSUBSECONDMASK_SS14_10
@@ -210,16 +207,15 @@ static void HW_RTC_SetConfig( void )
   RTC_DateTypeDef RTC_DateStruct;
 
   RtcHandle.Instance = RTC;
-  RtcHandle.Init.AsynchPrediv = PREDIV_A; /* RTC_ASYNCH_PREDIV; */
+  RtcHandle.Init.AsynchPrediv = RTC_AUTO_1_SECOND;
   RtcHandle.Init.OutPut = RTC_OUTPUTSOURCE_ALARM;
 
   HAL_RTC_Init( &RtcHandle );
   
-  /*Monday 1st January 2016*/
+  /*Monday 1st January 2000*/
   RTC_DateStruct.Year = 0;
   RTC_DateStruct.Month = RTC_MONTH_JANUARY;
   RTC_DateStruct.Date = 1;
-  RTC_DateStruct.WeekDay = RTC_WEEKDAY_MONDAY;
   HAL_RTC_SetDate(&RtcHandle , &RTC_DateStruct, RTC_FORMAT_BIN);
   
   /*at 0:0:0*/
