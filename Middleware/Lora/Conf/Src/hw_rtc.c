@@ -175,6 +175,10 @@ static void HW_RTC_StartWakeUpAlarm( uint32_t timeoutValue );
 
 static TimerTime_t HW_RTC_GetCalendarValue(  RTC_DateTypeDef* RTC_DateStruct, RTC_TimeTypeDef* RTC_TimeStruct  );
 
+/* Exported variables ---------------------------------------------------------*/
+
+__IO uint16_t tickMs = 0;
+
 /* Exported functions ---------------------------------------------------------*/
 
 /*!

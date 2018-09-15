@@ -36,7 +36,7 @@
 #include "stm32f1xx_it.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "hw_rtc.h"
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -175,6 +175,8 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
+  tickMs++;
+  tickMs = (tickMs == 1000) ? 0 : tickMs;
 
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
