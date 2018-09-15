@@ -23,6 +23,8 @@
 *.sim
 *.tmp.c
 
+*.ini
+
 src/main/STM32429I_EVAL
 src/main/settings
 settings
