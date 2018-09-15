@@ -405,14 +405,11 @@ void HW_RTC_IrqHandler ( void )
  */
 void HW_RTC_DelayMs( uint32_t delay )
 {
-  TimerTime_t delayValue = 0;
   TimerTime_t timeout = 0;
-
-  delayValue = HW_RTC_ms2Tick( delay );
 
   /* Wait delay ms */
   timeout = HW_RTC_GetTimerValue( );
-  while( ( ( HW_RTC_GetTimerValue( ) - timeout ) ) < delayValue )
+  while( ( ( HW_RTC_GetTimerValue( ) - timeout ) ) < delay )
   {
     __NOP( );
   }
@@ -562,6 +559,7 @@ static TimerTime_t HW_RTC_GetCalendarValue( RTC_DateTypeDef* RTC_DateStruct, RTC
   
   /* Get Time and Date*/
   HAL_RTC_GetTime( &RtcHandle, RTC_TimeStruct, RTC_FORMAT_BIN );
+  HAL_RTC_GetDate( &RtcHandle, RTC_DateStruct, RTC_FORMAT_BIN );
  
   /* calculte amount of elapsed days since 01/01/2000 */
   calendarValue= DIVC( (DAYS_IN_YEAR*3 + DAYS_IN_LEAP_YEAR)* RTC_DateStruct->Year , 4);
@@ -578,6 +576,8 @@ static TimerTime_t HW_RTC_GetCalendarValue( RTC_DateTypeDef* RTC_DateStruct, RTC
   calendarValue += ( ( uint32_t )RTC_TimeStruct->Seconds + 
                      ( ( uint32_t )RTC_TimeStruct->Minutes * SECONDS_IN_1MINUTE ) +
                      ( ( uint32_t )RTC_TimeStruct->Hours * SECONDS_IN_1HOUR ) ) ;
+
+  calendarValue = (calendarValue << N_PREDIV_S) + (tickMs & PREDIV_S);
 
   return( calendarValue );
 }
