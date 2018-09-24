@@ -199,12 +199,6 @@ int main( void )
   
   /*Disbale Stand-by mode*/
   LPM_SetOffMode(LPM_APPLI_Id , LPM_Disable );
-  
-  /* Led Timers*/
-  TimerInit(&timerLed, OnledEvent);   
-  TimerSetValue( &timerLed, LED_PERIOD_MS);
-
-  TimerStart(&timerLed );
 
   // Radio initialization
   RadioEvents.TxDone = OnTxDone;
