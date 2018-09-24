@@ -221,6 +221,9 @@ static void HW_RTC_SetConfig( void )
   /*at 0:0:0*/
   RTC_TimeStruct.Hours = 0;
   RTC_TimeStruct.Minutes = 0;
+  RTC_TimeStruct.Seconds = 0;
+  HAL_RTC_SetTime(&RtcHandle , &RTC_TimeStruct, RTC_FORMAT_BIN);
+}
 
   RTC_TimeStruct.Seconds = 0;
   
