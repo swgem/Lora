@@ -76,8 +76,8 @@ Maintainer: Miguel Luis and Gregory Cristian
 /* LORA I/O definition */
 
 
-#define RADIO_RESET_PORT                          GPIOA
-#define RADIO_RESET_PIN                           GPIO_PIN_5
+#define RADIO_RESET_PORT                          GPIOC
+#define RADIO_RESET_PIN                           GPIO_PIN_3
 
 #define RADIO_MOSI_PORT                           GPIOA
 #define RADIO_MOSI_PIN                            GPIO_PIN_7
