@@ -225,11 +225,6 @@ static void HW_RTC_SetConfig( void )
   HAL_RTC_SetTime(&RtcHandle , &RTC_TimeStruct, RTC_FORMAT_BIN);
 }
 
-  RTC_TimeStruct.Seconds = 0;
-  
-  HAL_RTC_SetTime(&RtcHandle , &RTC_TimeStruct, RTC_FORMAT_BIN);
-}
-
 /*!
  * @brief calculates the wake up time between wake up and mcu start
  * @note resulotion in RTC_ALARM_TIME_BASE in timer ticks

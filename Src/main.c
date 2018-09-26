@@ -192,10 +192,8 @@ int main( void )
   HAL_Init( );
   
   SystemClock_Config( );
-  
-  // DBG_Init( );
 
-  HW_Init( );  
+  HW_Init( );
   
   /*Disbale Stand-by mode*/
   LPM_SetOffMode(LPM_APPLI_Id , LPM_Disable );
