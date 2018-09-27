@@ -42,6 +42,8 @@
 extern void _Error_Handler(char *, int);
 /* USER CODE BEGIN 0 */
 
+extern void HW_GPIO_IrqHandler( uint16_t GPIO_Pin );
+
 /* USER CODE END 0 */
 /**
   * Initializes the Global MSP.
@@ -83,6 +85,16 @@ void HAL_MspInit(void)
 }
 
 /* USER CODE BEGIN 1 */
+
+/**
+  * @brief  EXTI line detection callbacks.
+  * @param  GPIO_Pin: Specifies the pins connected to the EXTI line.
+  * @retval None
+  */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  HW_GPIO_IrqHandler( GPIO_Pin );
+}
 
 /**
   * @brief  Gets IRQ number as a function of the GPIO_Pin.
