@@ -236,25 +236,6 @@ int main( void )
 #else
     #error "Please define a frequency band in the compiler options."
 #endif
-
-  while (1)
-  {
-    // Send the next PING frame      
-    Buffer[0] = 'P';
-    Buffer[1] = 'I';
-    Buffer[2] = 'N';
-    Buffer[3] = 'G';
-    // We fill the buffer with numbers for the payload 
-    for( i = 4; i < BufferSize; i++ )
-    {
-      Buffer[i] = i - 4;
-    }
-
-    DelayMs(1); 
-    Radio.Send(Buffer, BufferSize);
-
-    DelayMs(2000);
-  }
                                   
   Radio.Rx( RX_TIMEOUT_VALUE );
                                   
