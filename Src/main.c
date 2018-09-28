@@ -262,35 +262,36 @@ int main( void )
   {
     switch( State )
     {
-    case RX:
-      if( isMaster == true )
+      case RX:
       {
-        if( BufferSize > 0 )
+        if( isMaster == true )
         {
-          if( strncmp( ( const char* )Buffer, ( const char* )PongMsg, 4 ) == 0 )
+          if( BufferSize > 0 )
           {
-            TimerStop(&timerLed );
-            LED_Off( LED_BLUE);
-            LED_Off( LED_GREEN ) ; 
-            LED_Off( LED_RED1 ) ;;
-            // Indicates on a LED that the received frame is a PONG
-            LED_Toggle( LED_RED2 ) ;
-
-
-            // Send the next PING frame      
-            Buffer[0] = 'P';
-            Buffer[1] = 'I';
-            Buffer[2] = 'N';
-            Buffer[3] = 'G';
-            // We fill the buffer with numbers for the payload 
-            for( i = 4; i < BufferSize; i++ )
+            if( strncmp( ( const char* )Buffer, ( const char* )PongMsg, 4 ) == 0 )
             {
-              Buffer[i] = i - 4;
-            }
-            // PRINTF("...PING\n\r");
+              TimerStop(&timerLed );
+              LED_Off( LED_BLUE);
+              LED_Off( LED_GREEN ) ; 
+              LED_Off( LED_RED1 ) ;;
+              // Indicates on a LED that the received frame is a PONG
+              LED_Toggle( LED_RED2 ) ;
 
-            DelayMs( 1 ); 
-            Radio.Send( Buffer, BufferSize );
+
+              // Send the next PING frame      
+              Buffer[0] = 'P';
+              Buffer[1] = 'I';
+              Buffer[2] = 'N';
+              Buffer[3] = 'G';
+              // We fill the buffer with numbers for the payload 
+              for( i = 4; i < BufferSize; i++ )
+              {
+                Buffer[i] = i - 4;
+              }
+              // PRINTF("...PING\n\r");
+
+              DelayMs( 1 ); 
+              Radio.Send( Buffer, BufferSize );
             }
             else if( strncmp( ( const char* )Buffer, ( const char* )PingMsg, 4 ) == 0 )
             { // A master already exists then become a slave
@@ -338,47 +339,58 @@ int main( void )
               isMaster = true;
               Radio.Rx( RX_TIMEOUT_VALUE );
             }
-         }
-      }
-      State = LOWPOWER;
-      break;
-    case TX:
-      // Indicates on a LED that we have sent a PING [Master]
-      // Indicates on a LED that we have sent a PONG [Slave]
-      //GpioWrite( &Led2, GpioRead( &Led2 ) ^ 1 );
-      Radio.Rx( RX_TIMEOUT_VALUE );
-      State = LOWPOWER;
-      break;
-    case RX_TIMEOUT:
-    case RX_ERROR:
-      if( isMaster == true )
-      {
-        // Send the next PING frame
-        Buffer[0] = 'P';
-        Buffer[1] = 'I';
-        Buffer[2] = 'N';
-        Buffer[3] = 'G';
-        for( i = 4; i < BufferSize; i++ )
-        {
-          Buffer[i] = i - 4;
+          }
         }
-        DelayMs( 1 ); 
-        Radio.Send( Buffer, BufferSize );
+        State = LOWPOWER;
       }
-      else
+      break;
+
+      case TX:
+      {
+        // Indicates on a LED that we have sent a PING [Master]
+        // Indicates on a LED that we have sent a PONG [Slave]
+        //GpioWrite( &Led2, GpioRead( &Led2 ) ^ 1 );
+        Radio.Rx( RX_TIMEOUT_VALUE );
+        State = LOWPOWER;
+      }
+      break;
+
+      case RX_TIMEOUT:
+      case RX_ERROR:
+      {
+        if( isMaster == true )
+        {
+          // Send the next PING frame
+          Buffer[0] = 'P';
+          Buffer[1] = 'I';
+          Buffer[2] = 'N';
+          Buffer[3] = 'G';
+          for( i = 4; i < BufferSize; i++ )
+          {
+            Buffer[i] = i - 4;
+          }
+          DelayMs( 1 ); 
+          Radio.Send( Buffer, BufferSize );
+        }
+        else
+        {
+          Radio.Rx( RX_TIMEOUT_VALUE );
+        }
+        State = LOWPOWER;
+      }
+      break;
+
+      case TX_TIMEOUT:
       {
         Radio.Rx( RX_TIMEOUT_VALUE );
+        State = LOWPOWER;
       }
-      State = LOWPOWER;
       break;
-    case TX_TIMEOUT:
-      Radio.Rx( RX_TIMEOUT_VALUE );
-      State = LOWPOWER;
-      break;
-    case LOWPOWER:
+
+      case LOWPOWER:
       default:
-            // Set low power
-      break;
+              // Set low power
+        break;
     }
     
     DISABLE_IRQ( );
